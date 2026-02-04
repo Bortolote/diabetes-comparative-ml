@@ -33,7 +33,7 @@ def train_and_evaluate(X, y, description):
     return pd.DataFrame(results)
 
 # 1. Dataset Indian Pima
-path_pima = 'data/diabetes.csv'
+path_pima = 'data/Base de dados 1 - Indian Pima Diabetes.csv'
 if os.path.exists(path_pima):
     df_pima = pd.read_csv(path_pima)
     X_pima = df_pima[['Glucose', 'BMI']]
@@ -47,7 +47,7 @@ else:
     results_pima = pd.DataFrame()
 
 # 2. Dataset Vigitel
-path_vigitel = 'data/vigitel_principais_tratados_normalizados.csv'
+path_vigitel = 'data/Base de dados 2 - Vigitel.csv'
 if os.path.exists(path_vigitel):
     df_vigitel = pd.read_csv(path_vigitel)
     X_vigitel = df_vigitel[['Glicemia_Normalizada', 'IMC_Normalizado']]
