@@ -21,9 +21,9 @@ A pipeline foi estruturada para garantir o rigor estatístico e a replicabilidad
 
 ### 1. Pré-processamento e Limpeza
 
-- **Tratamento de Dados (Pima)**: Valores ausentes na variável `Insulin` foram substituídos pela mediana.
+- **Tratamento de Dados (Pima)**: No dataset Pima, valores `0` em variáveis como Insulina foram tratados como dados faltantes e imputados via **mediana**, garantindo robustez contra *outliers*.
 - **Tratamento de Dados (Vigitel)**: Valores ausentes foram preenchidos com a média das colunas.
-- **Normalização**: Aplicada a todas as variáveis numéricas do Vigitel.
+- **Normalização**: Aplicação de `StandardScaler` para garantir que modelos baseados em distância (SVM) e gradiente (Redes Neurais) não fossem enviesados pela escala das variáveis.
 
 ### 2. Divisão e Treinamento
 
@@ -45,7 +45,7 @@ A pipeline foi estruturada para garantir o rigor estatístico e a replicabilidad
 
 ### Comparativo de Métricas (Dataset Pima)
 
-![Desempenho dos Modelos](Figure_1.png)
+![Desempenho dos Modelos](figures/Figure_1.png)
 
 *Comparativo de Acurácia, Precisão, Recall e F1-Score.*
 
@@ -53,9 +53,9 @@ A pipeline foi estruturada para garantir o rigor estatístico e a replicabilidad
 
 ### Importância das Variáveis
 
-![Importância das Variáveis](Figure_6.png)
+![Importância das Variáveis](figures/Figure_6.png)
 
-*Importância dos atributos como Glicose e IMC.*
+*Glicose e IMC consolidam-se como os principais preditores estatísticos.*
 
 ---
 
@@ -63,16 +63,17 @@ A pipeline foi estruturada para garantir o rigor estatístico e a replicabilidad
 
 | **Logistic Regression** | **Random Forest** |
 | :---: | :---: |
-| ![](Figure_2.png) | ![](Figure_3.png) |
+| ![](figures/Figure_2.png) | ![](figures/Figure_3.png) |
 | **SVM** | **Neural Network** |
-| ![](Figure_4.png) | ![](Figure_5.png) |
+| ![](figures/Figure_4.png) | ![](figures/Figure_5.png) |
 
 ---
 
 ### Resumo dos Resultados
 
-- **Indian Pima**: SVM com melhor acurácia inicial (77,92%). Após ajustes, Random Forest com melhor recall.  
-- **Vigitel**: Regressão Logística com melhor acurácia, mas com desbalanceamento.
+- **Indian Pima**: O **Random Forest** apresentou o melhor **Recall** após o ajuste de hiperparâmetros, sendo o modelo mais seguro para triagem (minimização de falsos negativos).  
+- **Vigitel**: A alta acurácia da Regressão Logística esconde um desafio de **desbalanceamento de classes**, onde o modelo tende a favorecer a classe majoritária.
+- **Geral**: Modelos não-lineares como Random Forest mostraram maior **resiliência** a amostras reduzidas e dados ruidosos.
 
 ---
 
