@@ -1,27 +1,33 @@
-# Diabetes Prediction: Comparative ML Study
+# Predição de Diabetes com Machine Learning: Uma Abordagem Comparativa
 
-Este repositório apresenta um estudo comparativo de modelos de Machine Learning para a predição de diabetes, utilizando dois datasets distintos: o **Indian Pima Diabetes** e dados do **Vigitel Brasil**.
+[cite_start]Este repositório contém o projeto de análise preditiva de diabetes mellitus desenvolvido como parte do currículo do **Departamento de Estatística (DEs)** e **Departamento de Computação (DC)** da **Universidade Federal de São Carlos (UFSCar)**[cite: 31, 35, 41, 45].
 
-## Objetivo do Projeto
-O foco é demonstrar a **capacidade de generalização** de algoritmos de classificação em diferentes populações, utilizando um pipeline de pré-processamento robusto e métricas estatísticas rigorosas.
+[cite_start]O objetivo principal é investigar o desempenho de diferentes algoritmos de Aprendizado de Máquina (ML) em identificar o risco de diabetes utilizando dois contextos de dados distintos: dados clínicos controlados e dados de vigilância populacional[cite: 64, 101].
 
----
+## 📊 Sobre os Datasets
 
-## Stack Técnica
-* **Linguagem:** Python 3.10+
-* **Bibliotecas:** * `scikit-learn`: Implementação de SVC, Random Forest e Regressão Logística.
-  * `pandas` & `numpy`: Manipulação de dados e álgebra linear.
-  * `matplotlib`: Visualização de métricas comparativas.
+O projeto utiliza dois conjuntos de dados para avaliar a robustez dos modelos:
+1.  [cite_start]**Indian Pima Diabetes:** Dados clínicos de 768 pacientes, focados em variáveis como Glicose, IMC e Insulina[cite: 102].
+2.  [cite_start]**Vigitel 2023:** Dados do sistema de vigilância do Ministério da Saúde do Brasil, com 21.690 registros, representando uma amostra diversificada da população[cite: 104, 105].
 
-## Diferenciais do Projeto
-* **Padronização:** Uso de `StandardScaler` para normalização de features.
-* **Métricas de Saúde:** Foco em **Recall** e **F1-Score**, priorizando a redução de falsos negativos em diagnósticos médicos.
-* **Validação Cruzada:** Implementação de `cross_validate` com 3-folds para assegurar a consistência estatística dos resultados.
-* **Lidando com Desbalanceamento:** Aplicação de `class_weight='balanced'` para ajustar os modelos à realidade dos dados clínicos.
+## 🛠️ Metodologia e Tecnologias
 
-## 📁 Estrutura do Projeto
-```text
-├── data/               # Arquivos CSV originais
-├── main.py             # Script principal de treino e avaliação
-├── requirements.txt    # Dependências do projeto
-└── README.md           # Documentação
+A pipeline de dados foi construída para garantir rigor estatístico e replicabilidade:
+* [cite_start]**Tratamento de Dados:** Imputação de valores ausentes pela mediana para o dataset Pima e preenchimento pela média para o Vigitel[cite: 107, 111].
+* [cite_start]**Pré-processamento:** Normalização de atributos via `StandardScaler` e divisão estratificada dos dados (80/20) para manter a proporção das classes[cite: 112, 116, 118].
+* [cite_start]**Validação:** Utilização de Validação Cruzada (*5-fold Cross-Validation*) e busca exaustiva de hiperparâmetros com `RandomizedSearchCV`[cite: 128, 132].
+
+### Modelos Implementados
+* [cite_start]Regressão Logística [cite: 122]
+* [cite_start]Random Forest [cite: 123]
+* [cite_start]Máquina de Vetores de Suporte (SVM) [cite: 124]
+* [cite_start]Rede Neural Multicamadas (MLP) [cite: 125]
+
+
+
+## 🚀 Como Executar o Projeto
+
+### 1. Requisitos
+Certifique-se de ter o Python 3.8+ instalado. Instale as dependências necessárias:
+```bash
+pip install -r requirements.txt
